@@ -58,12 +58,12 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [x] Commit: `Implement delete function in Subscriber repository.`
     -   [x] Write answers of your learning module's "Reflection Publisher-1" questions in this README.
 -   **STAGE 2: Implement services and controllers**
-    -   [ ] Commit: `Create Notification service struct skeleton.`
-    -   [ ] Commit: `Implement subscribe function in Notification service.`
-    -   [ ] Commit: `Implement subscribe function in Notification controller.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification service.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
+    -   [x] Commit: `Create Notification service struct skeleton.`
+    -   [x] Commit: `Implement subscribe function in Notification service.`
+    -   [x] Commit: `Implement subscribe function in Notification controller.`
+    -   [x] Commit: `Implement unsubscribe function in Notification service.`
+    -   [x] Commit: `Implement unsubscribe function in Notification controller.`
+    -   [x] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
 -   **STAGE 3: Implement notification mechanism**
     -   [ ] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
     -   [ ] Commit: `Implement notify function in Notification service to notify each Subscriber.`
@@ -91,5 +91,17 @@ This is the place for you to write reflections:
     Dalam konteks keamanan multithreading di Rust, penggunaan `DashMap` merupakan pilihan yang lebih tepat dibandingkan hanya menerapkan Singleton pattern. Meskipun Singleton dapat memastikan hanya ada satu instance dari objek yang dibuat, ia tidak secara otomatis menjamin thread safety. `DashMap` telah dioptimalkan untuk lingkungan multithreaded, sehingga memungkinkan operasi baca dan tulis yang lebih efisien. Oleh karena itu, dalam kasus ini, `DashMap` tetap diperlukan untuk memastikan daftar subscriber dikelola dengan aman dan optimal dalam aplikasi multithreaded.
 
 #### Reflection Publisher-2
+
+1. In the Model-View Controller (MVC) compound pattern, there is no “Service” and “Repository”. Model in MVC covers both data storage and business logic. Explain based on your understanding of design principles, why we need to separate “Service” and “Repository” from a Model?
+
+    Memisahkan *Service* dari *Repository* dalam desain Model-View-Controller (MVC) penting untuk menerapkan prinsip *Single Responsibility* dan meningkatkan modularitas sistem. *Service* bertanggung jawab atas logika bisnis dan pengolahan data, sedangkan *Repository* berfungsi sebagai lapisan akses data yang berinteraksi langsung dengan database. Dengan pemisahan ini, perubahan dalam penyimpanan data tidak akan memengaruhi logika bisnis, begitu juga sebaliknya, sehingga kode menjadi lebih terstruktur, mudah diuji, serta lebih fleksibel untuk dikembangkan dan dipelihara.
+
+2. What happens if we only use the Model? Explain your imagination on how the interactions between each model (Program, Subscriber, Notification) affect the code complexity for each model?
+
+    Jika hanya menggunakan *Model* tanpa memisahkan *Service* dan *Repository*, maka setiap model seperti *Program*, *Subscriber*, dan *Notification* harus menangani logika bisnis serta akses data secara langsung. Ini menyebabkan ketergantungan tinggi antar komponen, di mana setiap perubahan pada satu model dapat memengaruhi seluruh sistem, meningkatkan kompleksitas kode, dan menyulitkan pemeliharaan. Interaksi antar model juga menjadi lebih kusut karena setiap model harus mengetahui detail penyimpanan data dan aturan bisnis lainnya, sehingga sulit untuk melakukan perubahan atau pengujian secara terpisah tanpa merusak bagian lain dari aplikasi.
+
+3. Have you explored more about Postman? Tell us how this tool helps you to test your current work. You might want to also list which features in Postman you are interested in or feel like it is helpful to help your Group Project or any of your future software engineering projects.
+
+    Ya, Postman adalah alat yang sangat membantu dalam menguji dan memvalidasi fungsionalitas aplikasi dengan cara mengirimkan permintaan HTTP ke berbagai endpoint dan memeriksa respons yang diterima. Saya dapat dengan mudah melakukan pengujian CRUD (Create, Read, Update, Delete) untuk memastikan bahwa API bekerja sesuai harapan. Fitur seperti *Collection* memungkinkan saya menyimpan dan mengatur serangkaian permintaan untuk pengujian berulang, sementara *Environment Variables* membantu dalam mengelola berbagai konfigurasi API tanpa harus mengubah setiap permintaan secara manual. Selain itu, fitur *Automated Testing* dan *Mock Server* memungkinkan saya untuk mensimulasikan respons API dan menguji skenario tanpa harus bergantung pada backend yang sudah berjalan. Dengan semua fitur ini, Postman menjadi alat yang sangat bermanfaat dalam proyek di masa depan.
 
 #### Reflection Publisher-3
